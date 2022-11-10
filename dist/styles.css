@@ -1,0 +1,337 @@
+:root {
+  font-family: 'Poppins', sans-serif;
+
+  --font-color-primary: #060606;
+  --font-color-white: #ffffff;
+  --font-color-dark: #303030;
+  --font-color-gray: #c2bfbf;
+
+  --bg-color-aqua: #c4dae0;
+  --bg-color-white: #ffffff;
+  --bg-color-gray: #6b7688;
+  --bg-color-violet: #6d5bd8;
+  --bg-color-header: #e4e4e4;
+  --bg-color-header2: #f3f3f3;
+
+  --circle-two: #3e3b4c;
+  --circle-three: #ffa000;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-color-aqua);
+}
+
+section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.app__container {
+  width: min(90%, 1024px);
+  border-radius: 8px;
+
+  background-color: var(--bg-color-white);
+  box-shadow: 0px 10px 6px -10px;
+}
+
+.app__container-header {
+  height: 40px;
+  border-radius: 8px 8px 0 0;
+  background-color: var(--bg-color-header);
+  display: flex;
+  padding-inline: 20px;
+}
+
+.app__container-header .logo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border: 0;
+  background-color: transparent;
+  gap: 10px;
+}
+
+.app__container-header .burger-menu {
+  display: none;
+  flex-direction: row;
+  align-items: center;
+  border: 0;
+  background-color: transparent;
+  gap: 10px;
+}
+
+.circle {
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+}
+
+.circle:first-child {
+  background-color: #303030;
+}
+.circle:nth-child(2) {
+  background-color: #3e3b4c;
+}
+.circle:last-child {
+  background-color: #ffa000;
+}
+
+.app__container-body {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.app__sidebar {
+  width: 25%;
+  padding: 1rem;
+  background-color: var(--bg-color-white);
+}
+
+.app__sidebar h3 {
+  color: var(--font-color-primary);
+  border-bottom: solid 1px var(--bg-color-header);
+  padding-bottom: 0.5rem;
+}
+
+.app__sidebar ul {
+  margin-block: 0.5rem;
+}
+
+.app__sidebar li {
+  margin-block: 0.25rem;
+  list-style: none;
+  border-radius: 2px;
+}
+
+.app__sidebar button {
+  color: var(--font-color-dark);
+  border: 0;
+  border-radius: 4px;
+  width: 100%;
+  background: 0;
+  cursor: pointer;
+  font-size: 0.9rem;
+  display: flex;
+  padding: 0.5rem;
+}
+
+.app__sidebar ul li:hover {
+  background-color: var(--bg-color-header);
+}
+
+.app__sidebar button:hover i {
+  color: var(--circle-two);
+}
+
+.app__sidebar i {
+  color: var(--font-color-gray);
+  margin-right: 1rem;
+}
+
+.app__sidebar-panel .new__project-btn {
+  background-color: var(--bg-color-header2);
+  color: var(--font-color-primary);
+  font-weight: 500;
+}
+
+.app__sidebar-panel .new__project-btn i {
+  color: var(--circle-three) !important;
+}
+
+.app__sidebar-panel .new__project-btn:hover {
+  background-color: var(--bg-color-gray);
+  color: var(--font-color-white);
+}
+
+.app__sidebar-panel .new__project-btn:hover i {
+  color: var(--font-color-white) !important;
+}
+
+.app__sidebar-panel.projects ul {
+  max-height: 150px;
+  overflow-y: scroll;
+  margin: 0 0 0.5rem 0;
+}
+
+.new__todo-form {
+  display: none;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.new__todo-form input[type='text'] {
+  padding: 0.5rem;
+  width: 100%;
+  border: 0;
+  background-color: var(--bg-color-header);
+  border-radius: 2px;
+  outline: none;
+  margin-bottom: 0.5rem;
+  box-sizing: border-box;
+}
+
+.new__todo-form .controls {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  gap: 0.5rem;
+}
+
+.new__todo-form .controls button {
+  display: flex;
+  justify-content: center;
+  font-size: 0.9rem;
+  color: var(--bg-color-white);
+  align-items: center;
+}
+
+.controls .add__btn {
+  background-color: var(--circle-three);
+}
+
+.controls .cancel__btn {
+  background-color: var(--circle-two);
+}
+
+.app__main {
+  padding: 1rem;
+  width: 75%;
+}
+
+.app__main-header {
+  max-width: 100%;
+  height: 40px;
+  display: flex;
+  color: var(--font-color-primary);
+  border-bottom: solid 1px var(--bg-color-header);
+  justify-content: space-between;
+  align-items: center;
+}
+
+.app__main-header-delete button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  color: var(--font-color-primary);
+  font-weight: 500;
+  padding: 0.25rem 1rem;
+  border-radius: 4px;
+}
+
+.app__main-header-delete button:hover {
+  background-color: var(--bg-color-gray);
+}
+
+.app__main-header-delete button:hover i {
+  color: var(--font-color-white);
+}
+
+.app__main-header-delete button i {
+  color: red;
+  font-size: 1.25rem;
+}
+
+.app__tasks-list ul {
+  height: 400px;
+  overflow-y: scroll;
+}
+.app__tasks-list ul {
+  gap: 10px;
+}
+
+.app__tasks-list ul li {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  list-style: none;
+  padding-inline: 1rem;
+  font-size: 0.8rem;
+  border-radius: 2px;
+}
+
+.app__tasks-list ul li:hover {
+  background-color: var(--bg-color-header2);
+}
+
+.app__tasks-list ul li input {
+  margin-right: 10px;
+  accent-color: var(--circle-two);
+}
+
+@media only screen and (max-width: 600px) {
+  .app__container-body {
+    flex-direction: column;
+  }
+
+  .app__sidebar {
+    display: block;
+    width: 100%;
+    padding: 0.5rem 1rem;
+  }
+
+  .app__sidebar ul {
+    display: grid;
+    grid-template-columns: auto auto auto;
+  }
+
+  .app__container-header {
+    justify-content: flex-end;
+  }
+
+  .app__container-header .logo {
+    display: none;
+    gap: 5px;
+  }
+
+  .app__container-header .burger-menu {
+    display: flex;
+    gap: 4px;
+    cursor: pointer;
+  }
+
+  .circle {
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+  }
+
+  .categories {
+    font-size: 1rem;
+  }
+
+  h3.pc.categories {
+    margin-top: 1rem;
+  }
+  .app__sidebar ul {
+    margin-block: 0;
+  }
+
+  .new__todo-form input[type='text'] {
+    padding: 0.75rem 0.5rem;
+  }
+
+  .new__todo-form .controls button {
+    padding: 0.75rem;
+  }
+
+  .app__main {
+    width: 100%;
+  }
+
+  .app__main-header {
+    height: 40px;
+  }
+}
