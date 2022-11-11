@@ -40,16 +40,15 @@ section {
 
 .app__container {
   width: min(90%, 1024px);
-  border-radius: 8px;
-
+  border-radius: 8px 8px 8px 8px;
   background-color: var(--bg-color-white);
   box-shadow: 0px 10px 6px -10px;
 }
 
 .app__container-header {
   height: 40px;
-  border-radius: 8px 8px 0 0;
   background-color: var(--bg-color-header);
+  border-radius: 8px 8px 0 0;
   display: flex;
   padding-inline: 20px;
 }
@@ -96,6 +95,8 @@ section {
 
 .app__sidebar {
   width: 25%;
+  height: 100%;
+  border-radius: 8px;
   padding: 1rem;
   background-color: var(--bg-color-white);
 }
@@ -126,6 +127,18 @@ section {
   font-size: 0.9rem;
   display: flex;
   padding: 0.5rem;
+}
+
+.app__sidebar .panel__one-ul button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.counter {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--circle-two);
 }
 
 .app__sidebar ul li:hover {
@@ -170,6 +183,7 @@ section {
   display: none;
   width: 100%;
   margin-top: 1rem;
+  border-radius: 8px;
 }
 
 .new__todo-form input[type='text'] {
@@ -264,6 +278,12 @@ section {
   border-radius: 2px;
 }
 
+.app__tasks-list .task-date {
+  margin-left: auto;
+  color: var(--circle-two);
+  font-size: 0.75rem;
+}
+
 .app__tasks-list ul li:hover {
   background-color: var(--bg-color-header2);
 }
@@ -312,6 +332,10 @@ section {
 
   .categories {
     font-size: 1rem;
+  }
+
+  .counter {
+    display: none;
   }
 
   h3.pc.categories {
