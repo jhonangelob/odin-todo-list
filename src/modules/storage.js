@@ -1,69 +1,61 @@
-const todos = JSON.parse(localStorage.getItem('todos')) || [];
+const allTasks = JSON.parse(localStorage.getItem('todos')) || [];
+const tasksUL = document.querySelector('.app__tasks-list-ul');
+const tasksCounter = document.querySelector('.all_tasks');
+const taskForm = document.querySelector('.app__task-new-form');
+const formInput = document.querySelector('.addTaskInput');
 
-const showTodoList = () => {
-  const tasksUL = document.querySelector('.app__tasks-list-ul');
-  tasksUL.innerHTML = '';
+class Task {
+  constructor(name) {
+    this.folder = 'Test';
+    this.name = name;
+    this.done = false;
+  }
+}
 
-  todos?.map((todo, index) => {
-    const newT = document.createElement('li');
-    newT.innerHTML = `<input class="checkbox-todo" type="checkbox" />
-    <p>${todo.name}</p>
-    <span class="task-date">00/00/0000</span>`;
-    tasksUL.appendChild(newT);
-  });
-
-  const tasksCounter = document.querySelector('.all_tasks');
-  tasksCounter.textContent = todos.length;
-  addTodoEvents();
+const setItem = (x) => {
+  localStorage.setItem('todos', JSON.stringify(x));
+  showTasks();
 };
 
-const addTodoEvents = () => {
-  //  ADD NEW TASK
-  const addTodoForm = document.querySelector('.app__task-new-form');
-  addTodoForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const newTodo = {
-      folder: 'test',
-      name: document.querySelector('.addTaskInput').value,
-      done: false,
-    };
-
-    if (newTodo.name !== '') {
-      todos.push(newTodo);
-      localStorage.setItem('todos', JSON.stringify(todos));
-      e.target.reset();
-      showTodoList();
-      getProjects();
-    }
+const showTasks = () => {
+  tasksUL.innerHTML = '';
+  allTasks?.map((task) => {
+    const newListEntry = document.createElement('li');
+    newListEntry.innerHTML = `<input class="checkbox-todo" type="checkbox" />
+                      <p>${task.name}</p>
+                      <span class="task-date"></span>`;
+    tasksUL.appendChild(newListEntry);
   });
+  tasksCounter.textContent = allTasks.length;
+  storageFunctions();
+};
 
-  //  REMOVE TASK
-  const checkbox = Array.from(document.querySelectorAll('.checkbox-todo'));
+const storageFunctions = () => {
+  const deleteTaskBtns = Array.from(
+    document.querySelectorAll('.checkbox-todo')
+  );
 
-  checkbox.map((chk, index) => {
-    chk?.addEventListener('click', (e) => {
+  deleteTaskBtns.map((button, index) => {
+    button.addEventListener('click', (e) => {
       e.preventDefault();
-      todos.splice(index, 1);
-      localStorage.setItem('todos', JSON.stringify(todos));
-      showTodoList();
-      getProjects();
+      allTasks.splice(index, 1);
+      setItem(allTasks);
     });
   });
-};
 
-const getProjects = () => {
-  const taskUL = document.querySelector('.app__sidebar-ul');
-  taskUL.innerHTML = '';
-  todos?.map((todo) => {
-    const li = document.createElement('li');
-    li.innerHTML = `<button><i class="bi bi-collection-fill"></i>${todo.folder}</button>`;
-    taskUL.appendChild(li);
+  taskForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const task = new Task(formInput.value);
+    if (task.name != '') {
+      allTasks.push(task);
+      setItem(allTasks);
+    }
+    e.target.reset();
   });
 };
 
 const storageActions = () => {
-  showTodoList();
-  getProjects();
+  showTasks();
 };
 
 export default storageActions;
