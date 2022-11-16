@@ -293,6 +293,45 @@ section {
   accent-color: var(--circle-two);
 }
 
+.app__tasks-new {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-top: solid 1px var(--bg-color-header);
+  padding: 0.5rem 1rem;
+}
+
+.app__tasks-new input {
+  border-radius: 4px;
+  border: none;
+  padding: 0.25rem 1rem;
+  background-color: var(--bg-color-header);
+  outline: none;
+  font-size: 0.9rem;
+  width: 70%;
+}
+
+.app__tasks-new button {
+  font-size: 0.9rem;
+  padding: 0.25rem 1rem;
+  border: 0;
+  border-radius: 4px;
+  background-color: var(--circle-three);
+  color: var(--bg-color-white);
+}
+
+.new__task-label {
+  font-size: 0.9rem;
+  color: var(--font-color-dark);
+}
+
+.app__task-new-form {
+  display: flex;
+  justify-content: flex-end;
+  width: 60%;
+  gap: 0.5rem;
+}
+
 @media only screen and (max-width: 600px) {
   .app__container-body {
     flex-direction: column;
@@ -363,6 +402,23 @@ section {
 
   .app__remove-card {
     left: 5% !important;
+  }
+
+  .new__task-label {
+    display: none;
+  }
+
+  .app__tasks-new {
+    padding: 1rem 0.5rem;
+  }
+
+  .app__task-new-form {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .app__tasks-new input {
+    padding: 0.75rem 0.5rem;
   }
 }
 
@@ -435,12 +491,12 @@ section {
 .remove__cnclBtn:hover {
   background-color: var(--bg-color-gray);
   color: var(--bg-color-white);
-  transition: all.3s ease;
+  transition: all 0.3s ease;
 }
 
 .remove__delBtn:hover {
   opacity: 0.8;
-  transition: all.3s ease;
+  transition: all 0.3s ease;
 }
 
 .is-blurred {
@@ -455,4 +511,12 @@ section {
   filter: blur(1px);
   -webkit-filter: blur(1px);
   transition: all 0.1s ease;
+}
+
+.task-active {
+  background-color: var(--bg-color-header);
+}
+
+.task-active button i {
+  color: var(--circle-two);
 }
