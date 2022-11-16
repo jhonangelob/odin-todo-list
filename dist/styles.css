@@ -302,7 +302,7 @@ section {
 }
 
 .app__tasks-new input {
-  border-radius: 4px;
+  border-radius: 2px;
   border: none;
   padding: 0.25rem 1rem;
   background-color: var(--bg-color-header);
@@ -315,7 +315,7 @@ section {
   font-size: 0.9rem;
   padding: 0.25rem 1rem;
   border: 0;
-  border-radius: 4px;
+  border-radius: 2px;
   background-color: var(--circle-three);
   color: var(--bg-color-white);
 }
