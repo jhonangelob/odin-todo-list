@@ -1,7 +1,11 @@
-import BurgerMenu from './modules/BurgerMenu';
-import LoadPage from './modules/LoadPage';
+import BurgerMenu from './modules/menu';
+import LoadPage from './modules/pageload';
+import storageActions from './modules/storage';
 
-(function () {
+const init = () => {
   BurgerMenu();
   LoadPage();
-})();
+  storageActions();
+};
+
+init();
